@@ -25,7 +25,7 @@ void TuringMachine::readData(std::string &filePath) {
 	char tempCurrSymbol{};
 	char tempNewSymbol{};
 	char tempDirection{};
-	//dadsadsa
+
 	if (!input) {
 		std::cerr << "Failed to open file." << std::endl;
 	}
@@ -101,9 +101,7 @@ void TuringMachine::render(SDL_Renderer *renderer, MyTexture &leftTape, MyTextur
 	int totalWidth = leftTape.getWidth() + centerTape.getWidth() + rightTape.getWidth();
 	int upToCenterWidth = totalWidth - leftTape.getWidth() * 2;
 	int upToRightWidth = upToCenterWidth - centerTape.getWidth() * 2;
-	//(winHeight - leftTape.getHeight()) / 2
-	//(winHeight - centerTape.getHeight()) / 2
-	//(winHeight - rightTape.getHeight()) / 2
+	
 	leftTape.render(renderer, (winWidth - totalWidth) / 2, yPos);
 	centerTape.render(renderer, (winWidth - upToCenterWidth) / 2, yPos);
 	rightTape.render(renderer, (winWidth - upToRightWidth) / 2, yPos);
@@ -119,6 +117,7 @@ bool TuringMachine::runInstructions() {
 			moveHead(inst);
 			break;
 		}
+
 		if (state == -1) {
 			run = false;
 			break;
